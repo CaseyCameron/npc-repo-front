@@ -1,0 +1,2 @@
+/api/*  https://immense-falls-53682.herokuapp.com/api/:splat 200!
+/*    /index.html   200

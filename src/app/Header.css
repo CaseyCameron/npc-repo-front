@@ -1,0 +1,16 @@
+.Header {
+  padding: 20px;
+  border-bottom: 1px solid lightgray;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+}
+
+
+.Header nav {
+  justify-self: end;
+}
+
+.Header nav a {
+  margin-left: 10px;
+}
