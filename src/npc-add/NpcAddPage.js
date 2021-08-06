@@ -1,35 +1,34 @@
-import { Component } from 'react';
+import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import Loading from '../common/Loader';
 import NpcForm from '../common/NpcForm';
 import { addNpc } from '../utils/npcs-api';
 import './NpcAddPage.css';
 
-export default class NpcAddPage extends Component {
-  state = {
-    loading: false
-  }
+const NpcAddPage = () => {
+  const [loading, setLoading] = useState(false);
+  const history = useHistory();
 
-  handleAdd = async npcToAdd => {
-    const { history } = this.props;
+  const handleAdd = async (npcToAdd) => {
     try {
-      this.setState({ loading: true });
+      setLoading(true);
       const newNpc = await addNpc(npcToAdd);
       history.push(`/npcs/${newNpc.id}`);
       console.log('adding');
     }
     catch (err) {
-      this.setState({ loading: false });
+      setLoading(false);
       console.log(err.message);
     }
-  }
+  };
 
-  render() {
+  if (loading) return <Loading />;
+  return (
+    <div className="NpcAddPage">
+      <h2>Add an Npc</h2>
+      <NpcForm onSubmit={handleAdd} />
+    </div>
+  );
+};
 
-    return (
-      <div className="NpcAddPage">
-        <h2>Add an Npc</h2>
-        <NpcForm onSubmit={this.handleAdd} />
-      </div>
-    );
-  }
-
-}
+export default NpcAddPage;

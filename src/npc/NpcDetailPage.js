@@ -1,6 +1,7 @@
 import { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Loader from '../common/Loader';
+import { useNpcById } from '../hooks/npcs';
 
 import { getNpc, deleteNpc } from '../utils/npcs-api';
 import './NpcDetailPage.css';

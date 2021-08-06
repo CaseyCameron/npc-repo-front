@@ -1,5 +1,20 @@
 import { useState, useEffect } from 'react';
-import { getAllNpcs } from '../utils/npcs-api';
+import { useHistory } from 'react-router-dom';
+import NpcDetailPage from '../npc/NpcDetailPage';
+import { addNpc, deleteNpc, getNpc, getAllNpcs } from '../utils/npcs-api';
+
+export const useAddNpc = (npc) => {
+  // const history = useHistory();
+  const [loading, setLoading] = useState(true);
+  const [npcData, setNpcData] = useState(null);
+
+  useEffect(() => {
+    addNpc(npc)
+      .then(setNpcData)
+      .finally(() => setLoading(false));
+  });
+  return npc;
+};
 
 export const useNpcs = () => {
   const [loading, setLoading] = useState(true);
@@ -12,3 +27,22 @@ export const useNpcs = () => {
   }, []);
   return { loading, npcs };
 };
+
+export const useNpcById = (id) => {
+  const [npc, setNpc] = useState(null);
+
+  useEffect(() => {
+    getNpc(id)
+      .then(setNpc);
+  });
+  return npc;
+};
+
+// export const useDeleteNpcById = (id) => {
+//   const [deletedNpc, setDeletedNpc] = useState(null);
+
+//   useEffect(() => {
+//     deleteNpc(id)
+//       .then()
+//   });
+// };

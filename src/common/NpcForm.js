@@ -45,6 +45,7 @@ export default class NpcForm extends Component {
   render() {
     const { name, race, alignment, description, image } = this.state;
     const { npc } = this.props;
+    // onChange={((e) => setName(e.target.value))} for inputs
 
     return (
       <form className="NpcForm" onSubmit={this.handleSubmit}>
