@@ -1,5 +1,4 @@
 import { Component } from 'react';
-
 import Footer from './Footer';
 import Header from './Header';
 import Home from '../home/Home';
@@ -24,43 +23,14 @@ class App extends Component {
       <div className="App">
         <Router>
           <Header />
-          <main>
-
-            <Switch>
-              <Route path="/" exact={true}
-                render={routerProps => (
-                  <Home {...routerProps} />
-                )}
-              />
-
-              <Route path="/npcs" exact={true}
-                render={routerProps => (
-                  <NpcsPage {...routerProps} />
-                )}
-              />
-
-              <Route path="/npcs/add" exact={true}
-                render={routerProps => (
-                  <NpcAddPage {...routerProps} />
-                )}
-              />
-
-              <Route path="/npcs/:id" exact={true}
-                render={routerProps => (
-                  <NpcDetailPage {...routerProps} />
-                )}
-              />
-
-              <Route path="/npcs/:id/edit" exact={true}
-                render={routerProps => (
-                  <NpcEditPage {...routerProps} />
-                )}
-              />
-
-              <Redirect to="/" />
-
-            </Switch>
-          </main>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/npcs" component={NpcsPage} />
+            <Route exact path="/npcs/add" component={NpcAddPage} />
+            <Route exact path="/npcs/:id" component={NpcDetailPage} />
+            <Route path="/npcs/:id/edit" component={NpcEditPage} />
+            <Redirect to="/" />
+          </Switch>
           <Footer />
         </Router>
       </div>
