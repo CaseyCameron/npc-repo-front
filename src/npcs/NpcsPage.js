@@ -1,46 +1,19 @@
-import { Component } from 'react';
-import { getAllNpcs } from '../utils/npcs-api';
+import React from 'react';
 import Loader from '../common/Loader';
 import NpcList from './NpcList';
+import { useNpcs } from '../hooks/npcs';
 import './NpcsPage.css';
 
-export default class NpcsPage extends Component {
-  state = {
-    npcs: [],
-    loading: true
-  }
+const NpcsPage = () => {
+  const { npcs, loading } = useNpcs();
+  if (loading) return <Loader loading={loading} />;
 
-  async componentDidMount() {
-    try {
-      const npcs = await getAllNpcs();
-      if (npcs) {
-        this.setState({ npcs: npcs });
-      }
-      else {
-        console.log('No npcs received. Check network tab.');
-      }
-    }
-    catch (err) {
-      console.log(err.message);
-    }
-    finally {
-      this.setState({ loading: false });
-    }
-  }
+  return (
+    <div className="NpcsPage">
+      <h2>Npcs List</h2>
+      <NpcList npcs={npcs} />
+    </div>
+  );
+};
 
-  render() {
-    const { npcs, loading } = this.state;
-
-    return (
-      <div className="NpcsPage">
-        <Loader loading={loading} />
-
-        <h2>Npcs List</h2>
-
-        <NpcList npcs={npcs} />
-
-      </div>
-    );
-  }
-
-}
+export default NpcsPage;
