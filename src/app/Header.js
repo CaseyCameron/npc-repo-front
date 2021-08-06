@@ -2,15 +2,15 @@ import { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import './Header.css';
 
-class Header extends Component{
-  render(){
+class Header extends Component {
+  render() {
     return (
       <header className="Header">
-        <h1>React App</h1>
+        <h1>NPC Repository</h1>
         <nav>
           <NavLink to="/">Home</NavLink>
-          <NavLink to="/monsters">Monsters</NavLink>
-          <NavLink to="/monsters/add">Add Monster</NavLink>
+          <NavLink to="/npcs">Npcs</NavLink>
+          <NavLink to="/npcs/add">Add Npc</NavLink>
         </nav>
       </header>
     );

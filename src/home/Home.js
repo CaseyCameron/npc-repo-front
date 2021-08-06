@@ -3,16 +3,16 @@ import { Link } from 'react-router-dom';
 import './Home.css';
 
 export default class Home extends Component {
-  
+
   render() {
     return (
       <div className="Home">
         <header>
-          <h2>Welcome to DnD Monsters</h2>
+          <h2>Welcome to DnD Npcs</h2>
         </header>
 
         <p>
-          <Link to='/monsters'>See the List</Link>
+          <Link to='/npcs'>See the List</Link>
         </p>
       </div>
     );

@@ -1,21 +1,21 @@
-.MonsterDetailPage {
+.NpcDetailPage {
   padding: 20px;
 }
 
-.MonsterDetailPage img {
+.NpcDetailPage img {
   height: 200px;
 }
 
-.MonsterDetailPage p {
+.NpcDetailPage p {
   margin: 15px 0;
 }
 
-.MonsterDetailPage a {
+.NpcDetailPage a {
   font-size: .9rem;
   margin-right: 10px;
 }
 
-.MonsterDetailPage button.delete {
+.NpcDetailPage button.delete {
   background: 0;
   border: 0;
   text-decoration: underline;
