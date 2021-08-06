@@ -26,7 +26,7 @@ export default class NpcAddPage extends Component {
 
     return (
       <div className="NpcAddPage">
-        <h2>Add a Npc</h2>
+        <h2>Add an Npc</h2>
         <NpcForm onSubmit={this.handleAdd} />
       </div>
     );
