@@ -1,25 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './NpcItem.css';
 
-class NpcItem extends Component {
-
-  render() {
-    const npc = this.props.npc;
-
-    return (
-      <li className="NpcItem">
-        <Link to={`/npcs/${npc.id}`}>
-          <h2>{npc.name}</h2>
-          <img src={npc.image} alt={npc.name} />
-          <p>Race: {npc.race}</p>
-          <p>Alignment: {npc.alignment}</p>
-          <p>Description: {npc.description}</p>
-        </Link>
-      </li>
-    );
-  }
-
-}
+const NpcItem = ({ id, name, image, race, alignment, description }) => {
+  return (
+    <figure className="NpcItem">
+      <Link to={`/npcs/${id}`}>
+        <figcaption>
+          <h2>{name}</h2>
+          <img src={image} alt={name} />
+          <p>Race: {race}</p>
+          <p>Alignment: {alignment}</p>
+          <p>Description: {description}</p>
+        </figcaption>
+      </Link>
+    </figure>
+  );
+};
 
 export default NpcItem;

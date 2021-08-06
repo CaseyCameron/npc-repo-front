@@ -1,22 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import NpcItem from './NpcItem';
 import './NpcList.css';
 
-
-class NpcList extends Component {
-
-  render() {
-    const { npcs } = this.props;
-
-    return (
-      <ul className="NpcList">
-        {npcs.map(npc => (
-          <NpcItem key={npc.id} npc={npc} />
-        ))}
-      </ul>
-    );
-  }
-
-}
+const NpcList = ({ npcs }) => {
+  const npcElements = npcs.map(npc => (
+    <li
+      key={npc.id}
+      className="NpcItem">
+      <NpcItem {...npc} />
+    </li>
+  ));
+  return <ul className="NpcList"> {npcElements}</ul>;
+};
 
 export default NpcList;

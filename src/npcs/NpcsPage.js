@@ -1,7 +1,7 @@
 import { Component } from 'react';
+import { getAllNpcs } from '../utils/npcs-api';
 import Loader from '../common/Loader';
 import NpcList from './NpcList';
-import { getAllNpcs } from '../utils/npcs-api';
 import './NpcsPage.css';
 
 export default class NpcsPage extends Component {
