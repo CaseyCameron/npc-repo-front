@@ -1,19 +1,18 @@
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import NpcDetailPage from '../npc/NpcDetailPage';
 import { addNpc, deleteNpc, getNpc, getAllNpcs } from '../utils/npcs-api';
 
-export const useAddNpc = (npc) => {
-  // const history = useHistory();
-  const [loading, setLoading] = useState(true);
-  const [npcData, setNpcData] = useState(null);
+export const useAddNpc = () => {
+  const [loading, setLoading] = useState(false);
+  const history = useHistory();
 
-  useEffect(() => {
-    addNpc(npc)
-      .then(setNpcData)
-      .finally(() => setLoading(false));
-  });
-  return npc;
+  const handleAdd = async (npcToAdd) => {
+    setLoading(true);
+    addNpc(npcToAdd)
+      .then(res => history.push(`/npcs/${res.id}`))
+      .then(() => setLoading(false));
+  };
+  return { handleAdd, loading };
 };
 
 export const useNpcs = () => {

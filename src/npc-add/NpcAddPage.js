@@ -2,25 +2,12 @@ import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Loading from '../common/Loader';
 import NpcForm from '../common/NpcForm';
+import { useAddNpc } from '../hooks/npcs';
 import { addNpc } from '../utils/npcs-api';
 import './NpcAddPage.css';
 
 const NpcAddPage = () => {
-  const [loading, setLoading] = useState(false);
-  const history = useHistory();
-
-  const handleAdd = async (npcToAdd) => {
-    try {
-      setLoading(true);
-      const newNpc = await addNpc(npcToAdd);
-      history.push(`/npcs/${newNpc.id}`);
-      console.log('adding');
-    }
-    catch (err) {
-      setLoading(false);
-      console.log(err.message);
-    }
-  };
+  const { handleAdd, loading } = useAddNpc();
 
   if (loading) return <Loading />;
   return (
