@@ -16,10 +16,6 @@
 }
 
 .NpcDetailPage button.delete {
-  background: 0;
-  border: 0;
-  text-decoration: underline;
-  color: blue;
   font-size: .9rem;
   cursor: pointer;
 }

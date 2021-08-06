@@ -1,7 +1,7 @@
 import React from 'react';
-import Loader from '../common/Loader';
+import Loader from '../../common/Loader';
 import NpcList from './NpcList';
-import { useNpcs } from '../hooks/npcs';
+import { useNpcs } from '../../hooks/npcs';
 import './NpcsPage.css';
 
 const NpcsPage = () => {

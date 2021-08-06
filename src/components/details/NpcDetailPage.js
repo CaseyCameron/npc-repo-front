@@ -1,9 +1,8 @@
 import { Component } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import Loader from '../common/Loader';
-import { useNpcById } from '../hooks/npcs';
-
-import { getNpc, deleteNpc } from '../utils/npcs-api';
+import { Link } from 'react-router-dom';
+import Button from '../../components/UI/Button';
+import Loader from '../../common/Loader';
+import { getNpc, deleteNpc } from '../../utils/npcs-api';
 import './NpcDetailPage.css';
 
 export default class NpcDetailPage extends Component {
@@ -67,12 +66,12 @@ export default class NpcDetailPage extends Component {
         <p>Npc Description: {npc.description}</p>
 
         <Link to={`/npcs/${npc.id}/edit`}>
-          Edit Npc
+          <Button>Edit Npc</Button>
         </Link>
 
-        <button className="delete" onClick={this.handleDelete}>
+        <Button className="delete" onClick={this.handleDelete}>
           Delete Npc
-        </button>
+        </Button>
       </div>
     );
   }

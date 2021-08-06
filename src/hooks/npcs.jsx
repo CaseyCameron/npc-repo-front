@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { addNpc, deleteNpc, getNpc, getAllNpcs } from '../utils/npcs-api';
+import { addNpc, getNpc, getAllNpcs } from '../utils/npcs-api';
 
 export const useAddNpc = () => {
   const [loading, setLoading] = useState(false);

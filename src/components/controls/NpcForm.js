@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import Button from '../../components/UI/Button';
 import './NpcForm.css';
 
 export default class NpcForm extends Component {
@@ -110,7 +111,7 @@ export default class NpcForm extends Component {
         </p>
 
         <p>
-          <button>{npc ? 'Update' : 'Add'} Npc</button>
+          <Button>{npc ? 'Update' : 'Add'} Npc</Button>
         </p>
 
       </form>

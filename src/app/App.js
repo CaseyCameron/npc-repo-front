@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Redirect, Route } from 'react-router-dom';
-import Footer from './Footer';
-import Header from './Header';
+import Footer from '../common/Footer';
+import Header from '../common/Header';
 import Home from '../home/Home';
-import NpcAddPage from '../npc-add/NpcAddPage';
-import NpcDetailPage from '../npc/NpcDetailPage';
-import NpcEditPage from '../npc-edit/NpcEditPage';
-import NpcsPage from '../npcs/NpcsPage';
+import NpcAddPage from '../components/controls/NpcAddPage';
+import NpcDetailPage from '../components/details/NpcDetailPage';
+import NpcEditPage from '../components/controls/NpcEditPage';
+import NpcsPage from '../components/display/NpcsPage';
 
 import './App.css';
 

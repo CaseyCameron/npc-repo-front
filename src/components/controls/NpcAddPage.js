@@ -1,9 +1,6 @@
-import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import Loading from '../common/Loader';
-import NpcForm from '../common/NpcForm';
-import { useAddNpc } from '../hooks/npcs';
-import { addNpc } from '../utils/npcs-api';
+import Loading from '../../common/Loader';
+import NpcForm from '../controls/NpcForm';
+import { useAddNpc } from '../../hooks/npcs';
 import './NpcAddPage.css';
 
 const NpcAddPage = () => {

@@ -1,6 +1,6 @@
 import { Component } from 'react';
-import NpcForm from '../common/NpcForm';
-import { getNpc, updateNpc } from '../utils/npcs-api';
+import NpcForm from '../controls/NpcForm';
+import { getNpc, updateNpc } from '../../utils/npcs-api';
 import './NpcEditPage.css';
 
 export default class NpcEditPage extends Component {
