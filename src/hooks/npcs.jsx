@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { addNpc, updateNpc, getNpc, getAllNpcs } from '../services/npcs-api';
+import { addNpc, updateNpc, getNpc, getAllNpcs, deleteNpc } from '../services/npcs-api';
 
 export const useAddNpc = () => {
   const [loading, setLoading] = useState(false);
@@ -51,11 +51,19 @@ export const useNpcById = (id) => {
   return npc;
 };
 
-// export const useDeleteNpcById = (id) => {
-//   const [deletedNpc, setDeletedNpc] = useState(null);
+export const useDeleteNpcById = (id) => {
+  const [loading, setLoading] = useState(false);
+  const history = useHistory();
+  const npc = useNpcById(id);
 
-//   useEffect(() => {
-//     deleteNpc(id)
-//       .then()
-//   });
-// };
+  const confirmation = `Sure you want to delete ${npc.name}?`;
+  if (!window.confirm(confirmation)) { return; }
+
+  const handleDelete = async (npcToDelete) => {
+    setLoading(true);
+    deleteNpc(npcToDelete)
+      .then(res => history.push('/npcs'))
+      .then(() => setLoading(false));
+  };
+  return { handleDelete, loading };
+};
