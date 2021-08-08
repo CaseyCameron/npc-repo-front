@@ -3,8 +3,8 @@ import { Link, useParams } from 'react-router-dom';
 import Button from '../../components/UI/Button';
 import Loading from '../../common/Loader';
 import { useDeleteNpcById } from '../../hooks/npcs';
-import './NpcDetailPage.css';
 import { useNpcById } from '../../hooks/npcs';
+import './NpcDetailPage.css';
 
 const NpcDetailPage = () => {
   let { id } = useParams();
@@ -17,7 +17,6 @@ const NpcDetailPage = () => {
 
       <h2>Npc Detail Page</h2>
       <img src={npc.image} alt={npc.name} />
-
       <p>Npc name: {npc.name}</p>
       <p>Npc race: {npc.race}</p>
       <p>Alignment: {npc.alignment}</p>
