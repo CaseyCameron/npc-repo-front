@@ -1,6 +1,5 @@
 import React from 'react';
 import Loader from '../../common/Loader';
-import NpcList from './NpcList';
 import NpcSearch from '../controls/NpcSearch';
 import { useNpcs } from '../../hooks/npcs';
 import './NpcsPage.css';

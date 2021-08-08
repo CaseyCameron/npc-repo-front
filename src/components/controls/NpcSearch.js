@@ -10,29 +10,26 @@ const NpcSearch = ({ npcs }) => {
   const handleChange = (e) => {
     e.preventDefault();
     setInput(e.target.value);
-    // };
-
-    // if (input.length > 0) {
-    //   console.log(npcs);
-    //   let searchResults = npcs.filter(i => {
-    //     return i.name.match(input);
-    //   });
 
     const nameRegex = new RegExp(input, 'i');
+    if (!input) {
+      const searchedData = npcs
+        .filter(thing => {
+          return !input || thing.name.match(nameRegex);
+        });
+      setList(searchedData);
+      console.log('searched data', searchedData);
+      console.log('npcs', npcs);
+    } else {
+      setList(npcs);
+    }
 
-    const searchedData = npcs
-      .filter(thing => {
-        return !input || thing.name.match(nameRegex);
-      });
     // .sort((a, b) => {
     //   if (a[sortField] < b[sortField]) return -1;
     //   if (a[sortField] > b[sortField]) return 1;
     //   return 0;
     // });
 
-    setList(searchedData);
-    console.log('searched data', searchedData);
-    console.log('npcs', npcs);
   };
 
   return (
