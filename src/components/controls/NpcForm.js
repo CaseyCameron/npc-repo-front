@@ -20,6 +20,7 @@ export default class NpcForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
+    console.log('you hit the form button');
     this.props.onSubmit(this.state);
   }
 
@@ -110,7 +111,7 @@ export default class NpcForm extends Component {
         </p>
 
         <p>
-          <Button>{npc ? 'Update' : 'Add'} Npc</Button>
+          <button>{npc ? 'Update' : 'Add'} Npc</button>
         </p>
 
       </form>

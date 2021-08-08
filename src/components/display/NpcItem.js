@@ -9,9 +9,12 @@ const NpcItem = ({ id, name, image, race, alignment, description }) => {
         <figcaption>
           <h2>{name}</h2>
           <img src={image} alt={name} />
-          <p>Race: {race}</p>
-          <p>Alignment: {alignment}</p>
-          <p>Description: {description}</p>
+          <p><span>Race:</span> {race}</p>
+          <p><span>Alignment:</span> {alignment}</p>
+          <span>Description:</span>
+          <div>
+            {description}
+          </div>
         </figcaption>
       </Link>
     </figure>

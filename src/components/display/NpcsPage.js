@@ -1,6 +1,7 @@
 import React from 'react';
 import Loader from '../../common/Loader';
 import NpcList from './NpcList';
+import NpcSearch from '../controls/NpcSearch';
 import { useNpcs } from '../../hooks/npcs';
 import './NpcsPage.css';
 
@@ -11,6 +12,7 @@ const NpcsPage = () => {
   return (
     <div className="NpcsPage">
       <h2>Npcs List</h2>
+      <NpcSearch npcs={npcs} />
       <NpcList npcs={npcs} />
     </div>
   );

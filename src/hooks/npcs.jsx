@@ -7,10 +7,12 @@ export const useAddNpc = () => {
   const history = useHistory();
 
   const handleAdd = async (npcToAdd) => {
+    console.log('made it to add');
     setLoading(true);
     addNpc(npcToAdd)
       .then(res => history.push(`/npcs/${res.id}`))
       .then(() => setLoading(false));
+    console.log(npcToAdd);
   };
   return { handleAdd, loading };
 };
@@ -42,7 +44,6 @@ export const useNpcs = () => {
 
 export const useNpcById = (id) => {
   const [npc, setNpc] = useState(null);
-
   useEffect(() => {
     getNpc(id)
       .then(setNpc);
@@ -57,7 +58,7 @@ export const useDeleteNpcById = (id) => {
   const npc = useNpcById(id);
 
   const confirmation = `Sure you want to delete ${npc.name}?`;
-  if (!window.confirm(confirmation)) { return; }
+  if (!window.confirm(confirmation)) return;
 
   const handleDelete = async (npcToDelete) => {
     setLoading(true);
