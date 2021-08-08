@@ -13,7 +13,7 @@ const NpcsPage = () => {
     <div className="NpcsPage">
       <h2>Npcs List</h2>
       <NpcSearch npcs={npcs} />
-      <NpcList npcs={npcs} />
+      {/* <NpcList npcs={npcs} /> */}
     </div>
   );
 };
