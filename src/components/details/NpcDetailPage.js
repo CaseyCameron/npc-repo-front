@@ -2,7 +2,7 @@ import { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../../components/UI/Button';
 import Loader from '../../common/Loader';
-import { getNpc, deleteNpc } from '../../utils/npcs-api';
+import { getNpc, deleteNpc } from '../../services/npcs-api';
 import './NpcDetailPage.css';
 
 export default class NpcDetailPage extends Component {

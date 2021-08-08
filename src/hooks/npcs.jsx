@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { addNpc, getNpc, getAllNpcs } from '../utils/npcs-api';
+import { addNpc, updateNpc, getNpc, getAllNpcs } from '../services/npcs-api';
 
 export const useAddNpc = () => {
   const [loading, setLoading] = useState(false);
@@ -13,6 +13,19 @@ export const useAddNpc = () => {
       .then(() => setLoading(false));
   };
   return { handleAdd, loading };
+};
+
+export const useUpdateNpc = () => {
+  const [loading, setLoading] = useState(false);
+  const history = useHistory();
+
+  const handleUpdate = async (npcToUpdate) => {
+    setLoading(true);
+    updateNpc(npcToUpdate)
+      .then(res => history.push(`/npcs/${res.id}`))
+      .then(() => setLoading(false));
+  };
+  return { handleUpdate, loading };
 };
 
 export const useNpcs = () => {
@@ -33,7 +46,8 @@ export const useNpcById = (id) => {
   useEffect(() => {
     getNpc(id)
       .then(setNpc);
-  });
+  }, []);
+  console.log('get by id', npc);
   return npc;
 };
 

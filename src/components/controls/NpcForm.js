@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import Button from '../../components/UI/Button';
+import Button from '../UI/Button';
 import './NpcForm.css';
 
 export default class NpcForm extends Component {
@@ -46,7 +46,6 @@ export default class NpcForm extends Component {
   render() {
     const { name, race, alignment, description, image } = this.state;
     const { npc } = this.props;
-    // onChange={((e) => setName(e.target.value))} for inputs
 
     return (
       <form className="NpcForm" onSubmit={this.handleSubmit}>
