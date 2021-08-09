@@ -1,0 +1,10 @@
+.NpcList {
+  margin: 0;
+  padding: 5px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 10px;
+  box-shadow: 1px 1px 5px black;
+  background: rgb(54,50,125);
+  background: linear-gradient(90deg, rgba(54,50,125,1) 0%, rgba(31,31,200,1) 20%, rgba(0,212,255,1) 100%);
+}

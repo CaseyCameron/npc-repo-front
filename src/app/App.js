@@ -1,72 +1,31 @@
-import { Component } from 'react';
-
-import Footer from './Footer';
-import Header from './Header';
+import React from 'react';
+import { BrowserRouter as Router, Switch, Redirect, Route } from 'react-router-dom';
+import Footer from '../common/Footer';
+import Header from '../common/Header';
 import Home from '../home/Home';
-import MonsterAddPage from '../monster-add/MonsterAddPage';
-import MonsterDetailPage from '../monster/MonsterDetailPage';
-import MonsterEditPage from '../monster-edit/MonsterEditPage';
-import MonstersPage from '../monsters/MonstersPage';
-
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Redirect
-} from 'react-router-dom';
+import NpcAddPage from '../components/controls/NpcAddPage';
+import NpcDetailPage from '../components/details/NpcDetailPage';
+import NpcEditPage from '../components/controls/NpcEditPage';
+import NpcsPage from '../components/display/NpcsPage';
 
 import './App.css';
 
-class App extends Component {
-
-  render() {
-    return (
-      <div className="App">
-        <Router>
-          <Header/>
-          <main>
-
-            <Switch>
-              <Route path="/" exact={true}
-                render={routerProps => (
-                  <Home {...routerProps}/>
-                )}
-              />
-
-              <Route path="/monsters" exact={true}
-                render={routerProps => (
-                  <MonstersPage {...routerProps}/>
-                )}
-              />
-
-              <Route path="/monsters/add" exact={true}
-                render={routerProps => (
-                  <MonsterAddPage {...routerProps}/>
-                )}
-              />
-
-              <Route path="/monsters/:id" exact={true}
-                render={routerProps => (
-                  <MonsterDetailPage {...routerProps}/>
-                )}
-              />
-
-              <Route path="/monsters/:id/edit" exact={true}
-                render={routerProps => (
-                  <MonsterEditPage {...routerProps}/>
-                )}
-              />
-
-              <Redirect to="/" />
-
-            </Switch>
-          </main>
-          <Footer/>
-        </Router>
-      </div>
-    );
-  }
-
+export default function App() {
+  return (
+    <div className="App">
+      <Router>
+        <Header />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/npcs" component={NpcsPage} />
+          <Route exact path="/npcs/add" component={NpcAddPage} />
+          <Route exact path="/npcs/:id" component={NpcDetailPage} />
+          <Route path="/npcs/:id/edit" component={NpcEditPage} />
+          <Redirect to="/" />
+        </Switch>
+        <Footer />
+      </Router>
+    </div>
+  );
 }
 
-export default App;

@@ -1,0 +1,57 @@
+.NpcItem a {
+  list-style: none;
+  background: white;
+  border: 1px solid darkgray;
+  padding: 10px;
+
+  display: grid;
+  grid-template-rows: 30px 120px 20px;
+  grid-gap: 10vh;
+
+  justify-items: center;
+
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  box-shadow: 1px 1px 5px black;
+  border-radius: 5px;
+  background: rgb(192, 192, 192);
+  font-family: 'Yrsa', serif;
+}
+
+.NpcItem figure  {
+  position: relative;
+  margin: 0 auto;
+  max-width: 75%;
+}
+
+.NpcItem div {
+  max-height: 10vh;
+  overflow-y: auto;
+  font-size: .7rem;
+}
+
+.NpcItem h2 {
+  margin: 0;
+  font-size: 1rem;
+  font-family: 'Marcellus SC', serif;
+}
+
+.NpcItem img {
+  height: 20vh;
+  width: 100%;
+  object-fit: contain;
+}
+
+.NpcItem p {
+  margin: 0;
+  font-size: .9rem;
+}
+
+.NpcItem span {
+  font-weight: bold;
+}
+
+li{
+  list-style: none;
+}

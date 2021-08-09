@@ -1,2 +1,2 @@
-/api/*  https://immense-falls-53682.herokuapp.com/api/:splat 200!
+/api/*  https://npc-repository.herokuapp.com/:splat 200!
 /*    /index.html   200

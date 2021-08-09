@@ -1,27 +1,27 @@
-.MonsterForm  {
+.NpcForm  {
   background: #E89062;;
   padding: 20px 50px;
   max-width: 400px;
 }
 
-.MonsterForm p {
+.NpcForm p {
   margin: 20px 0;
 }
 
-.MonsterForm label span {
+.NpcForm label span {
   display: block;
   margin-bottom: 7px;
   font-size: .85rem;
   text-transform: uppercase;
 }
 
-.MonsterForm input, .MonsterForm select, .MonsterForm button {
+.NpcForm input, .NpcForm select, .NpcForm button {
   width: 100%;
   height: 30px;
   box-sizing: border-box;
 }
 
-.MonsterForm input[type=checkbox] {
+.NpcForm input[type=checkbox] {
   margin-left: 0;
   margin-right: 5px;
   width: 15px;
@@ -29,21 +29,21 @@
   box-sizing: border-box;
 }
 
-.MonsterForm .vertically-centered {
+.NpcForm .vertically-centered {
   display: flex;
   align-items: center;
   text-transform: initial;
 }
 
-.MonsterForm select:invalid {
+.NpcForm select:invalid {
   color: gray;
 }
 
-.MonsterForm option:disabled {
+.NpcForm option:disabled {
   color: gray;
 }
 
-.MonsterForm button {
+.NpcForm button {
   background: #65A7AB;
   border: 1px solid #1F4E5C;
   color: white;

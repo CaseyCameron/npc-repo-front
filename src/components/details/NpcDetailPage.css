@@ -1,0 +1,31 @@
+.NpcDetailPage div {
+  display: grid;
+  flex-direction: column;
+  align-items: center;
+
+  background: white;
+  border: 1px solid darkgray;
+  padding: 10px;
+
+  width: 50%;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  box-shadow: 1px 1px 5px black;
+  border-radius: 5px;
+  background: rgb(192, 192, 192);
+  font-family: 'Yrsa', serif;
+}
+
+.NpcDetailPage img {
+  height: 50vh;
+}
+
+.NpcDetailPage p {
+  margin: 15px 0;
+}
+
+.NpcDetailPage a {
+  font-size: .9rem;
+  margin-right: 10px;
+}
