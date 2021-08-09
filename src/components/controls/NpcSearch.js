@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Button from '../UI/Button';
 import NpcList from '../display/NpcList';
 import './NpcSearch.css';
 
