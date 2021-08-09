@@ -43,12 +43,12 @@ export const useNpcs = () => {
 };
 
 export const useNpcById = (id) => {
-  const [npc, setNpc] = useState(null);
+  const [npc, setNpc] = useState([]);
+
   useEffect(() => {
     getNpc(id)
       .then(setNpc);
   }, []);
-  console.log('get by id', npc);
   return npc;
 };
 
