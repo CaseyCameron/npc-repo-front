@@ -1,6 +1,8 @@
 import request from 'superagent';
+import dotenv from 'dotenv';
+dotenv.config();
 
-const URL = '/api/v1/npcs';
+const URL = process.env.URL;
 
 export async function getAllNpcs() {
   const response = await request.get(URL);
