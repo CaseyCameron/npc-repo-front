@@ -50,7 +50,7 @@ export const useNpcById = (id) => {
   useEffect(() => {
     getNpc(id)
       .then(setNpc);
-  });
+  }, [id]);
   return npc;
 };
 
