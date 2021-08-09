@@ -2,11 +2,11 @@ import request from 'superagent';
 import dotenv from 'dotenv';
 dotenv.config();
 
-const URL = process.env.URL;
+const URL = 'https://npc-repository.herokuapp.com/api/v1/npcs/';
 
 export async function getAllNpcs() {
   const response = await request.get(URL);
-  console.log('trying to get npcs');
+  console.log('trying to get npcs', URL);
   return response.body;
 }
 
