@@ -1,116 +1,118 @@
-import React, { useEffect, useState } from 'react';
-import Button from '../UI/Button';
+import { Component } from 'react';
 import './NpcForm.css';
 
-const NpcForm = ({ npc }) => {
-  const [name, setName] = useState('');
-  const [race, setRace] = useState('');
-  const [alignment, setAlignment] = useState('');
-  const [description, setDescription] = useState('');
-  const [image, setImage] = useState('');
-  const [npcChange, setNpcChange] = useState([]);
+export default class NpcForm extends Component {
+  state = {
+    name: '',
+    race: '',
+    alignment: '',
+    description: '',
+    image: ''
+  }
 
-  // useEffect(() => {
-  //   if (!npc) return;
-  //   setNpc(npc);
-  // }, []);
+  componentDidMount() {
+    const { npc } = this.props;
+    if (!npc) { return; }
 
-  const handleSubmit = e => {
+    this.setState(npc);
+  }
+
+  handleSubmit = e => {
     e.preventDefault();
-    console.log('you hit the form button');
-    console.log('this is your npc', npc);
-    setNpcChange(npc);
-    return npcChange;
-  };
+    this.props.onSubmit(this.state);
+  }
 
-  const handleChangeName = ({ target }) => {
-    setName(target.value);
-  };
+  handleChangeName = ({ target }) => {
+    this.setState({ name: target.value });
+  }
 
-  const handleChangeRace = ({ target }) => {
-    setRace(target.value);
-  };
+  handleChangeRace = ({ target }) => {
+    this.setState({ race: target.value });
+  }
 
-  const handleChangeAlignment = ({ target }) => {
-    setAlignment(target.value);
-  };
+  handleChangeAlignment = ({ target }) => {
+    this.setState({ alignment: target.value });
+  }
 
-  const handleChangeDescription = ({ target }) => {
-    setDescription(target.value);
-  };
+  handleChangeDescription = ({ target }) => {
+    this.setState({ description: target.value });
+  }
 
-  const handleImage = ({ target }) => {
-    setImage(target.value);
-  };
+  handleChangeUrl = ({ target }) => {
+    this.setState({ image: target.value });
+  }
 
-  return (
-    <form className="NpcForm" onSubmit={handleSubmit}>
-      <p>
-        <label>
-          <span>Npc Name</span>
-          <input name="name" required placeholder="Name of the npc..."
-            value={name} onChange={handleChangeName}
-          />
-        </label>
-      </p>
+  render() {
+    const { name, race, alignment, description, image } = this.state;
+    const { npc } = this.props;
 
-      <p>
-        <label>
-          <span>Npc Race</span>
-          <select name="race" required
-            value={race} onChange={handleChangeRace}
-          >
-            <option>Aberration</option>
-            <option>Beast</option>
-            <option>Celestial</option>
-            <option>Construct</option>
-            <option>Dragon</option>
-            <option>Elemental</option>
-            <option>Fey</option>
-            <option>Fiend</option>
-            <option>Giant</option>
-            <option>Humanoid</option>
-            <option>Monstrosity</option>
-            <option>Ooze</option>
-            <option>Plant</option>
-            <option>Undead</option>
-          </select>
-        </label>
-      </p>
+    return (
+      <form className="NpcForm" onSubmit={this.handleSubmit}>
+        <p>
+          <label>
+            <span>Npc Name</span>
+            <input name="name" required placeholder="Name of the npc..."
+              value={name} onChange={this.handleChangeName}
+            />
+          </label>
+        </p>
 
-      <p>
-        <label>
-          <span>Npc Alignment</span>
-          <input name="alignment" required placeholder="alignment"
-            value={alignment} onChange={handleChangeAlignment}
-          />
-        </label>
-      </p>
+        <p>
+          <label>
+            <span>Npc Race</span>
+            <select name="race" required
+              value={race} onChange={this.handleChangeRace}
+            >
+              <option>Aberration</option>
+              <option>Beast</option>
+              <option>Celestial</option>
+              <option>Construct</option>
+              <option>Dragon</option>
+              <option>Elemental</option>
+              <option>Fey</option>
+              <option>Fiend</option>
+              <option>Giant</option>
+              <option>Humanoid</option>
+              <option>Monstrosity</option>
+              <option>Ooze</option>
+              <option>Plant</option>
+              <option>Undead</option>
+            </select>
+          </label>
+        </p>
 
-      <p>
-        <label>
-          <span>Npc Description</span>
-          <input name="description" required placeholder="description"
-            value={description} onChange={handleChangeDescription}
-          />
-        </label>
-      </p>
+        <p>
+          <label>
+            <span>Npc Alignment</span>
+            <input name="alignment" required placeholder="alignment"
+              value={alignment} onChange={this.handleChangeAlignment}
+            />
+          </label>
+        </p>
 
-      <p>
-        <label>
-          <span>Npc Image Url</span>
-          <input name="image" required placeholder="Url to image of npc"
-            value={image} onChange={handleImage}
-          />
-        </label>
-      </p>
+        <p>
+          <label>
+            <span>Npc Description</span>
+            <input name="description" required placeholder="description"
+              value={description} onChange={this.handleChangeDescription}
+            />
+          </label>
+        </p>
 
-      <p>
-        <button>{npc ? 'Update' : 'Add'} Npc</button>
-      </p>
+        <p>
+          <label>
+            <span>Npc Image Url</span>
+            <input name="image" required placeholder="Url to image of npc"
+              value={image} onChange={this.handleChangeUrl}
+            />
+          </label>
+        </p>
 
-    </form>
-  );
-};
+        <p>
+          <button>{npc ? 'Update' : 'Add'} Npc</button>
+        </p>
 
-export default NpcForm;
+      </form>
+    );
+  }
+}

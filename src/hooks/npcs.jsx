@@ -17,11 +17,13 @@ export const useAddNpc = () => {
   return { handleAdd, loading };
 };
 
-export const useUpdateNpc = () => {
+export const useUpdateNpc = (npcToUpdate) => {
   const [loading, setLoading] = useState(false);
   const history = useHistory();
+  console.log('npc to update', npcToUpdate);
 
-  const handleUpdate = async (npcToUpdate) => {
+  const handleUpdate = async (e) => {
+    e.preventDefault();
     setLoading(true);
     updateNpc(npcToUpdate)
       .then(res => history.push(`/npcs/${res.id}`))
