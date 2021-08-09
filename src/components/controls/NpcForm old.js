@@ -1,55 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Button from '../UI/Button';
 import './NpcForm.css';
 
-const NpcForm = ({ npc }) => {
-  const [name, setName] = useState('');
-  const [race, setRace] = useState('');
-  const [alignment, setAlignment] = useState('');
-  const [description, setDescription] = useState('');
-  const [image, setImage] = useState('');
-  const [npcChange, setNpcChange] = useState([]);
-
-  // useEffect(() => {
-  //   if (!npc) return;
-  //   setNpc(npc);
-  // }, []);
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    console.log('you hit the form button');
-    console.log('this is your npc', npc);
-    setNpcChange(npc);
-    return npcChange;
-  };
-
-  const handleChangeName = ({ target }) => {
-    setName(target.value);
-  };
-
-  const handleChangeRace = ({ target }) => {
-    setRace(target.value);
-  };
-
-  const handleChangeAlignment = ({ target }) => {
-    setAlignment(target.value);
-  };
-
-  const handleChangeDescription = ({ target }) => {
-    setDescription(target.value);
-  };
-
-  const handleImage = ({ target }) => {
-    setImage(target.value);
-  };
+const NpcForm = ({ name, race, alignment, description, image, onChange, onSubmit, add }) => {
 
   return (
-    <form className="NpcForm" onSubmit={handleSubmit}>
+    <form className="NpcForm" onSubmit={onSubmit}>
       <p>
         <label>
           <span>Npc Name</span>
           <input name="name" required placeholder="Name of the npc..."
-            value={name} onChange={handleChangeName}
+            value={name} onChange={onChange}
           />
         </label>
       </p>
@@ -58,7 +19,7 @@ const NpcForm = ({ npc }) => {
         <label>
           <span>Npc Race</span>
           <select name="race" required
-            value={race} onChange={handleChangeRace}
+            value={race} onChange={onChange}
           >
             <option>Aberration</option>
             <option>Beast</option>
@@ -82,7 +43,7 @@ const NpcForm = ({ npc }) => {
         <label>
           <span>Npc Alignment</span>
           <input name="alignment" required placeholder="alignment"
-            value={alignment} onChange={handleChangeAlignment}
+            value={alignment} onChange={onChange}
           />
         </label>
       </p>
@@ -91,7 +52,7 @@ const NpcForm = ({ npc }) => {
         <label>
           <span>Npc Description</span>
           <input name="description" required placeholder="description"
-            value={description} onChange={handleChangeDescription}
+            value={description} onChange={onChange}
           />
         </label>
       </p>
@@ -100,13 +61,13 @@ const NpcForm = ({ npc }) => {
         <label>
           <span>Npc Image Url</span>
           <input name="image" required placeholder="Url to image of npc"
-            value={image} onChange={handleImage}
+            value={image} onChange={onChange}
           />
         </label>
       </p>
 
       <p>
-        <button>{npc ? 'Update' : 'Add'} Npc</button>
+        <Button onClick={onSubmit}>{add ? 'Add' : 'Update'} Npc</Button>
       </p>
 
     </form>
