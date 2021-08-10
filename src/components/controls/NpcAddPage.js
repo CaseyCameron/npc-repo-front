@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { addNpc } from '../../services/npcs-api';
 import Loader from '../../common/Loader';
 import NpcForm from '../controls/NpcForm';
@@ -25,8 +25,7 @@ const NpcAddPage = () => {
   };
 
   const handleAdd = async ({ name, race, alignment, description, image }, e) => {
-    console.log(name, race, alignment, description, image);
-
+    console.log('you sent');
     setLoading(true);
     const newNpc = await addNpc({
       name,
@@ -37,7 +36,6 @@ const NpcAddPage = () => {
     });
 
     setNpc(newNpc);
-    console.log('newNpc', newNpc);
     history.push(`/npcs/${newNpc.id}`);
     setLoading(false);
   };

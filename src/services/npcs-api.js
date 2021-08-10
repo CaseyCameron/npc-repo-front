@@ -6,7 +6,6 @@ const URL = 'https://npc-repository.herokuapp.com/api/v1/npcs/';
 
 export async function getAllNpcs() {
   const response = await request.get(URL);
-  console.log('trying to get npcs', URL);
   return response.body;
 }
 
