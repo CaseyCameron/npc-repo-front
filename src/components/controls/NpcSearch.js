@@ -11,10 +11,7 @@ const NpcSearch = ({ npcs }) => {
     if (!input) setList(npcs);
     if (input) {
       const filteredNpcs = npcs.filter(i => {
-        // i.name.toLocaleLowerCase();
         const lowerCasedName = i.name.split('').map(i => i.toLowerCase()).join('');
-        // trying to take nameRegex 
-        // const lowerCasedRegex = nameRegex.split('').map(i => i.toLowerCase()).join('');
         if (lowerCasedName.match(nameRegex)) return i;
       });
       setList(filteredNpcs);
