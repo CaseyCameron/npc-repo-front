@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import NpcList from '../display/NpcList';
 import './NpcSearch.css';
 
@@ -6,30 +6,34 @@ const NpcSearch = ({ npcs }) => {
   const [input, setInput] = useState('');
   const [list, setList] = useState([]);
 
-  const handleChange = (e) => {
-    e.preventDefault();
-    setInput(e.target.value);
-
-    const nameRegex = new RegExp(input, 'i');
-    if (!input) {
-      const searchedData = npcs
-        .filter(thing => {
-          return !input || thing.name.match(nameRegex);
-        });
-      setList(searchedData);
-      console.log('searched data', searchedData);
-      console.log('npcs', npcs);
+  useEffect(() => {
+    const nameRegex = new RegExp(input.split('').map(i => i.toLowerCase()).join(''), 'i');
+    if (!input) setList(npcs);
+    if (input) {
+      const filteredNpcs = npcs.filter(i => {
+        const lowerCasedName = i.name.split('').map(i => i.toLowerCase()).join('');
+        if (lowerCasedName.match(nameRegex)) {
+          return i;
+        } else {
+          return null;
+        }
+      });
+      setList(filteredNpcs);
     } else {
       setList(npcs);
     }
+  }, [input, npcs]);
 
-    // .sort((a, b) => {
-    //   if (a[sortField] < b[sortField]) return -1;
-    //   if (a[sortField] > b[sortField]) return 1;
-    //   return 0;
-    // });
-
+  const handleChange = (e) => {
+    e.preventDefault();
+    setInput(e.target.value);
   };
+
+  // .sort((a, b) => {
+  //   if (a[sortField] < b[sortField]) return -1;
+  //   if (a[sortField] > b[sortField]) return 1;
+  //   return 0;
+  // });
 
   return (
     <>
