@@ -9,9 +9,9 @@ import './NpcEditPage.css';
 const NpcEditPage = () => {
   const { id } = useParams();
   const history = useHistory();
-  const [add, setAdd] = useState(false);
+  const [add] = useState(false);
 
-  const { loading, npc } = useNpcById(id);
+  const { loading } = useNpcById(id);
 
   const [updatedNpc, setUpdatedNpc] = useState(null);
 

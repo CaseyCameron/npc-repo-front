@@ -8,14 +8,14 @@ import './NpcAddPage.css';
 const NpcAddPage = () => {
   const history = useHistory();
 
-  const [add, setAdd] = useState(true);
+  const [add] = useState(true);
   const [loading, setLoading] = useState(false);
 
-  const [name, setName] = useState('');
-  const [race, setRace] = useState('');
-  const [alignment, setAlignment] = useState('');
-  const [description, setDescription] = useState('');
-  const [image, setImage] = useState('');
+  // const [name, setName] = useState('');
+  // const [race, setRace] = useState('');
+  // const [alignment, setAlignment] = useState('');
+  // const [description, setDescription] = useState('');
+  // const [image, setImage] = useState('');
   const [npc, setNpc] = useState({});
 
 
@@ -25,7 +25,6 @@ const NpcAddPage = () => {
   };
 
   const handleAdd = async ({ name, race, alignment, description, image }, e) => {
-    console.log('you sent');
     setLoading(true);
     const newNpc = await addNpc({
       name,

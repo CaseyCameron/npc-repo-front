@@ -12,13 +12,17 @@ const NpcSearch = ({ npcs }) => {
     if (input) {
       const filteredNpcs = npcs.filter(i => {
         const lowerCasedName = i.name.split('').map(i => i.toLowerCase()).join('');
-        if (lowerCasedName.match(nameRegex)) return i;
+        if (lowerCasedName.match(nameRegex)) {
+          return i;
+        } else {
+          return null;
+        }
       });
       setList(filteredNpcs);
     } else {
       setList(npcs);
     }
-  }, [input]);
+  }, [input, npcs]);
 
   const handleChange = (e) => {
     e.preventDefault();
