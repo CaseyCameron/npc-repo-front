@@ -9,7 +9,7 @@ export default class Loader extends Component {
 
     return (
       <div className="Loader">
-        <h1>Loading...</h1>
+        <img src='../../Loading.gif' alt='Loading' />
       </div>
     );
   }
